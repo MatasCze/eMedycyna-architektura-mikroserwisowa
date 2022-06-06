@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<net:Database xmlns:net="http://tempuri.org/database.xsd">
+  <net:Visits>
+    <net:Visit id="1" doctorId="1" patientId="1" problem="nos" date="02.05.2021" room="22" />
+    <net:Visit id="2" doctorId="2" patientId="1" problem="ucho" date="01.05.2021" room="1" />
+    <net:Visit id="3" doctorId="2" patientId="2" problem="brzuch" date="02.05.2021" room="10" />
+    <net:Visit id="4" doctorId="3" patientId="3" problem="oko" date="03.05.2021" room="5" />
+  </net:Visits>
+</net:Database>

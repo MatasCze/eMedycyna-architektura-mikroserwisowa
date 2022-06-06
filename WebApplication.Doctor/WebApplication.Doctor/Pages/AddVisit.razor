@@ -1,0 +1,55 @@
+﻿@page "/add_visit"
+@inject IController controller
+@inject IModel model
+
+
+<RadzenHeading Size="H1" Text="Umów wizytę" />
+
+<RadzenTemplateForm TItem="VisitAddHelperData" Data="@visit">
+    <div class="row">
+        <div class="col-md-6">
+            <RadzenFieldset Text="Wizyta">
+                <div class="col-md-4 align-items-center d-flex">
+                    <RadzenLabel Text="Data" />
+                </div>
+                <div class="col-md-8">
+                    <RadzenDatePicker style="width: 100%;" Name="Date" @bind-Value="visit.Date" DateFormat="d"/>
+                </div>
+
+                <div class="col-md-4 align-items-center d-flex">
+                    <RadzenLabel Text="Problem" />
+                </div>
+                <div class="col-md-8">
+                    <RadzenDropDown style="width: 100%;" Name="Problem" AllowClear="true" Placeholder="Wybierz problem" Data=@model.ProblemList @bind-Value="visit.Problem" />
+                </div>
+            </RadzenFieldset>
+        </div>
+    </div>
+</RadzenTemplateForm>
+
+<RadzenButton Icon="add" style="margin-top: 15px" Text="Dodaj" Click="@Add" />
+
+@code {
+
+    VisitAddHelperData visit = new VisitAddHelperData();
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+
+
+    async Task Add()
+    {
+        if (visit.Problem != null && visit.Date != new DateTime())
+        {
+            model.SelectedProblem = visit.Problem;
+            model.SelectedDate = visit.Date;
+
+            await controller.AddVisitAsync();
+
+            visit = new VisitAddHelperData();
+        }
+    }
+
+}

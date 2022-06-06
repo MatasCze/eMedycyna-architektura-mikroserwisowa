@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>3c24e3a8-f7c3-4f8e-9dd0-415d17f33c71</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.13" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Patients.Logic\Patients.Logic.csproj" />
+    <ProjectReference Include="..\Patients.Model\Patients.Model.csproj" />
+    <ProjectReference Include="..\Patients.Rest.Model\Patients.Rest.Model.csproj" />
+  </ItemGroup>
+
+</Project>

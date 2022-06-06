@@ -1,0 +1,37 @@
+﻿@page "/"
+@inject IController controller
+@inject IModel model
+@inject NavigationManager UriHelper
+@layout AuthLayout
+
+<div class="row">
+    <div class="col-12">
+        <hr />
+        <h2>Logowanie</h2>
+        <EditForm Model="loginModel">
+            <label>PESEL</label>
+            <RadzenTextBox @bind-Value="loginModel.Pesel"></RadzenTextBox>
+            <hr />
+
+            <RadzenButton ButtonType="Radzen.ButtonType.Submit" Text="Zaloguj się"
+                          ButtonStyle="Radzen.ButtonStyle.Primary" class="btn-block" mr-2 Click="@NavigateToHome"/>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+
+    LoginData loginModel = new LoginData();
+
+    async Task NavigateToHome()
+    {
+        if (loginModel.Pesel != null)
+        {
+            model.PeselText = loginModel.Pesel;
+
+            await controller.LoginAsync();
+
+            UriHelper.NavigateTo("prescriptions");
+        }
+    }
+}

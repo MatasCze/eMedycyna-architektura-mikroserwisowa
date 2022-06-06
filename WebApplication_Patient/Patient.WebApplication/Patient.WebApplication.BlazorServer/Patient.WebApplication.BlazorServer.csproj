@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Radzen.Blazor" Version="3.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Patient.Application.Controller\Patient.Application.Controller.csproj" />
+    <ProjectReference Include="..\Patient.Application.Model\Patient.Application.Model.csproj" />
+    <ProjectReference Include="..\Patient.Application.Utilities\Patient.Application.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<net:Database xmlns:net="http://tempuri.org/database.xsd">
+
+	<net:Patients>
+		<net:Patient id="1" pesel="00000000001" lastName="Kowalski" firstName="Jan" />
+		<net:Patient id="2" pesel="00000000002" lastName="Nowak" firstName="Andrzej" />
+		<net:Patient id="3" pesel="00000000003" lastName="Kot" firstName="Tytus" />
+		<net:Patient id="4" pesel="00000000004" lastName="Stoch" firstName="Piotr" />
+		<net:Patient id="5" pesel="00000000005" lastName="Steinbach" firstName="Paweł" />
+		<net:Patient id="6" pesel="00000000006" lastName="Makowski" firstName="Artur" />
+	</net:Patients>
+
+</net:Database>

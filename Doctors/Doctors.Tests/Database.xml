@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<net:Database xmlns:net="http://tempuri.org/database.xsd">
+
+	<net:Doctors>
+		<net:Doctor id="1" firstName="Jan" lastName="Kowalski" pesel="00258869233">
+			<net:Specializations>
+				<net:Specialization id="1" name="Neurologia"/>
+				<net:Specialization id="2" name ="Okulistyka"/>
+			</net:Specializations>
+		</net:Doctor>
+		
+		<net:Doctor id="2" firstName="Paweł" lastName="Rutkowski" pesel="00348779244">
+			<net:Specializations>
+				<net:Specialization id="1" name="Neurologia"/>
+				<net:Specialization id="2" name ="Kardiologia"/>
+				<net:Specialization id="3" name="Onkologia kliniczna"/>
+			</net:Specializations>
+		</net:Doctor>
+	
+		<net:Doctor id="3" firstName="Przemysław" lastName="Kucharski" pesel="01277783355">
+			<net:Specializations>
+				<net:Specialization id="4" name="Ortopedia"/>
+			</net:Specializations>
+		</net:Doctor>
+
+		<net:Doctor id="4" firstName="Rafał" lastName="Kucharski" pesel="01258783332">
+			<net:Specializations>
+				<net:Specialization id="5" name="Pediatria"/>
+			</net:Specializations>
+		</net:Doctor>
+
+		<net:Doctor id="5" firstName="Jaromir" lastName="Sokołowski" pesel="01252213311">
+			<net:Specializations>
+				<net:Specialization id="2" name ="Kardiologia"/>
+				<net:Specialization id="6" name="Urologia"/>
+			</net:Specializations>
+		</net:Doctor>
+
+		<net:Doctor id="6" firstName="Przemysław" lastName="Wysocki" pesel="01348573398">
+			<net:Specializations>
+				<net:Specialization id="7" name="Angiologia"/>
+				<net:Specialization id="3" name="Onkologia kliniczna"/>
+				<net:Specialization id="8" name="Alergologia"/>
+			</net:Specializations>
+		</net:Doctor>
+	</net:Doctors>
+	
+</net:Database>

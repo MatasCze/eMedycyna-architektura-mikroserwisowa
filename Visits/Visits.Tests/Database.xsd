@@ -1,0 +1,26 @@
+﻿<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:net="http://tempuri.org/database.xsd" targetNamespace="http://tempuri.org/database.xsd" elementFormDefault="qualified">
+	
+	<xsd:element name="Database" type="net:Database" />
+
+	<xsd:complexType name="Database">
+		<xsd:sequence>
+			<xsd:element name="Visits" type="net:Visits" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name ="Visits">
+		<xsd:sequence>
+			<xsd:element name="Visit" type="net:Visit" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Visit">
+		<xsd:attribute name="id" type="xsd:int" use="required"/>
+		<xsd:attribute name="doctorId" type="xsd:int" use="required"/>
+		<xsd:attribute name="patientId" type="xsd:int" use="required"/>
+		<xsd:attribute name="problem" type="xsd:string" use="required"/>
+		<xsd:attribute name="date" type="xsd:string" use="required"/>
+		<xsd:attribute name="room" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	
+</xsd:schema>

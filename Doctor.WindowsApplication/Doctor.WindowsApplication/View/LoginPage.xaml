@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="Doctor.WindowsApplication.View.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="DarkSeaGreen" Height="Auto" Width="Auto">
+
+    <Grid x:Name="rootPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Background="DarkSeaGreen" CornerRadius="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="listPanel" Background="DarkSeaGreen" Grid.Row="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel x:Name="prescriptionPanel" Grid.Row="2" Margin="5">
+                <TextBlock Text="Logowanie" HorizontalAlignment="Center" FontSize="50" FontFamily="Arial" Margin="0,0,0,30" Foreground="White"/>
+                <TextBox x:Name="doctorId" Header="ID lekarza" Text="{x:Bind Model.DoctorId, Mode=TwoWay}"/>
+                <TextBox x:Name="patientPesel" Header="Pesel pacjenta (opcjonalne)" Text="{x:Bind Model.PeselText, Mode=TwoWay}"/>
+                <Button x:Name="loginButton" Background="Transparent" Margin="10" HorizontalAlignment="Center" Command="{x:Bind Controller.LoginCommand}" Click="Btn_GoToPrescriptionPage_Click">
+                    <StackPanel>
+                        <SymbolIcon Symbol="Accept" Foreground="White" Margin="15"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Page>

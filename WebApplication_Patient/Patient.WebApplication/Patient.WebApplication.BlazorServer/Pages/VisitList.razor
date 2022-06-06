@@ -1,0 +1,39 @@
+﻿@page "/visits"
+@inject IController controller
+@inject IModel model
+
+
+<RadzenHeading Size="H1" Text="Zaplanowane wizyty" />
+
+<RadzenDataGrid AllowPaging="true" AllowSorting="true" TItem="VisitData"
+                Data=@model.VisitList>
+    <Columns>
+
+        <RadzenDataGridColumn Title="Lekarz" TItem="VisitData">
+            <Template Context="visit">
+                <span>@visit.DoctorFirstName @visit.DoctorLastName</span>
+            </Template>
+        </RadzenDataGridColumn>
+        <RadzenDataGridColumn Property="Date" Title="Data" TItem="VisitData" />
+        <RadzenDataGridColumn Property="Room" Title="Gabinet" TItem="VisitData" />
+        <RadzenDataGridColumn Property="Problem" Title="Problem" TItem="VisitData" />
+
+    </Columns>
+</RadzenDataGrid>
+
+<RadzenButton Icon="refresh" style="margin-top: 15px" Text="Refresh" Click="@refresh" />
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+
+        await refresh();
+    }
+
+    async Task refresh()
+    {
+        await controller.SearchVisitsAsync();
+    }
+}

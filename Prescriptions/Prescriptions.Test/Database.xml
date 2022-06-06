@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<net:Database xmlns:net="http://tempuri.org/database.xsd">
+	<net:Prescriptions>
+		<net:Prescription id="1" doctorId="23" patientId="32" givenAt="01.01.2021" expiryDate="03.03.2021">
+			<net:Medicines>
+				<net:Medicine id="2" name="Apap" />
+				<net:Medicine id="4" name="Ibum" />
+			</net:Medicines>
+		</net:Prescription>
+		<net:Prescription id="2" doctorId="23" patientId="32" givenAt="01.01.2021" expiryDate="03.03.2021">
+			<net:Medicines>
+				<net:Medicine id="2" name="Apap" />
+				<net:Medicine id="4" name="Ibum" />
+			</net:Medicines>
+		</net:Prescription>
+		<net:Prescription id="3" doctorId="23" patientId="32" givenAt="01.01.2021" expiryDate="03.03.2021">
+			<net:Medicines>
+				<net:Medicine id="2" name="Apap" />
+				<net:Medicine id="4" name="Ibum" />
+			</net:Medicines>
+		</net:Prescription>
+		<net:Prescription id="5" patientId="1" doctorId="1" givenAt="04.01.2021" expiryDate="04.03.2021">
+			<net:Medicines>
+				<net:Medicine id="1" name="Aspirin" />
+				<net:Medicine id="2" name="Strepsils" />
+				<net:Medicine id="3" name="Ketonal" />
+			</net:Medicines>
+		</net:Prescription>
+		<net:Prescription id="6" patientId="3" doctorId="1" givenAt="04.01.2021" expiryDate="04.03.2021">
+			<net:Medicines>
+				<net:Medicine id="1" name="Aspirin" />
+				<net:Medicine id="2" name="Ketonal" />
+				<net:Medicine id="3" name="Apap" />
+			</net:Medicines>
+		</net:Prescription>
+		<net:Prescription id="7" patientId="3" doctorId="2" givenAt="04.01.2021" expiryDate="04.03.2021">
+			<net:Medicines>
+				<net:Medicine id="1" name="Aspirin" />
+				<net:Medicine id="2" name="Ketonal" />
+				<net:Medicine id="3" name="Apap" />
+			</net:Medicines>
+		</net:Prescription>
+		<net:Prescription id="8" patientId="2" doctorId="1" givenAt="04.01.2021" expiryDate="04.03.2021">
+			<net:Medicines>
+				<net:Medicine id="1" name="Aspirin" />
+				<net:Medicine id="2" name="Ketonal" />
+				<net:Medicine id="3" name="Apap" />
+			</net:Medicines>
+		</net:Prescription>
+	</net:Prescriptions>
+</net:Database>

@@ -1,0 +1,55 @@
+﻿@page "/prescriptions"
+@inject IController controller
+@inject IModel model
+
+
+<RadzenHeading Size="H1" Text="Moje recepty" />
+
+<RadzenDataGrid @ref="prescriptionsGrid" AllowPaging="true" AllowSorting="true" TItem="PrescriptionHelperData"
+                Data="@prescriptions">
+    <Columns>
+        <RadzenDataGridColumn Property="GivenAt" Title="Data wydania" TItem="PrescriptionHelperData" />
+        <RadzenDataGridColumn Property="ExpiryDate" Title="Data ważności" TItem="PrescriptionHelperData" />
+        <RadzenDataGridColumn Property="Medicines" Title="Leki" TItem="PrescriptionHelperData"/>
+    </Columns>
+</RadzenDataGrid>
+
+<RadzenButton Icon="refresh" style="margin-top: 15px" Text="Refresh" Click="@refresh"/>
+
+@code {
+
+    RadzenDataGrid<PrescriptionHelperData> prescriptionsGrid;
+    IList<PrescriptionHelperData> prescriptions = new List<PrescriptionHelperData>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+
+        await refresh();
+    }
+
+    async Task refresh()
+    {
+        await controller.SearchPrescriptionsAsync();
+
+        prescriptions.Clear();
+
+        foreach (PrescriptionData prescription in model.PrescriptionList)
+        {
+            string str = "";
+            foreach(MedicineData medicine in prescription.Medicines)
+            {
+                str = medicine.Name + " " + str + " ";
+            }
+
+            prescriptions.Add(new PrescriptionHelperData()
+            {
+                GivenAt = prescription.GivenAt,
+                ExpiryDate = prescription.ExpiryDate,
+                Medicines = str
+            }) ;
+        }
+
+        await prescriptionsGrid.Reload();
+    }
+}

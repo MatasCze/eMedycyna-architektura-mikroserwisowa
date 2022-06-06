@@ -1,0 +1,39 @@
+﻿<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:net="http://tempuri.org/database.xsd" targetNamespace="http://tempuri.org/database.xsd" elementFormDefault="qualified">
+
+	<xsd:element name="Database" type="net:Database" />
+
+	<xsd:complexType name="Database">
+		<xsd:sequence>
+			<xsd:element name="Prescriptions" type="net:Prescriptions" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name ="Prescriptions">
+		<xsd:sequence>
+			<xsd:element name="Prescription" type="net:Prescription" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Prescription">
+		<xsd:sequence>
+			<xsd:element name="Medicines" type="net:Medicines" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:int" use="required"/>
+		<xsd:attribute name="patientId" type="xsd:int" use="required"/>
+		<xsd:attribute name="doctorId" type="xsd:int" use="required"/>
+		<xsd:attribute name="givenAt" type="xsd:string" use="required"/>
+		<xsd:attribute name="expiryDate" type="xsd:string" use="required"/>
+	</xsd:complexType>
+
+	<xsd:complexType name ="Medicines">
+		<xsd:sequence>
+			<xsd:element name="Medicine" type="net:Medicine" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Medicine">
+		<xsd:attribute name="id" type="xsd:int" use="required"/>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+	</xsd:complexType>
+
+</xsd:schema>

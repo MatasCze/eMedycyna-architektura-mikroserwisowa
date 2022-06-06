@@ -1,0 +1,21 @@
+﻿#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
+#For more information, please see https://aka.ms/containercompat
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+LABEL stage=webservicerest_build
+WORKDIR /src
+COPY ["Doctor.AppService.Rest/Doctor.AppService.Rest.csproj", "Doctor.AppService.Rest/"]
+RUN dotnet restore "Doctor.AppService.Rest/Doctor.AppService.Rest.csproj"
+COPY . .
+WORKDIR "/src/Doctor.AppService.Rest"
+RUN dotnet build "Doctor.AppService.Rest.csproj" -c Release -o /app/build
+RUN dotnet publish "Doctor.AppService.Rest.csproj" -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
+EXPOSE 80
+EXPOSE 443
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "Doctor.AppService.Rest.dll"]
